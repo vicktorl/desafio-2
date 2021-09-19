@@ -1,4 +1,3 @@
-
 var nodos1;
 var nodoTop;
 var nodos2;
@@ -28,9 +27,9 @@ function calculadora(boton) {
             nodoMiddle.nodeValue = "";
             nodoBottom.nodeValue = "";
             break;
-        case 'x':
+        case '*':
             nodoMiddle.nodeValue = "x";
-            sign = "x";
+            sign = "*";
             acum++;
             break;
         case '÷':
@@ -76,12 +75,15 @@ function resultado(resTop, resBottom, sign) {
             return parseFloat(resTop) + parseFloat(resBottom);
 
         case '-':
-            return parseInt(resTop) - parseInt(resBottom);
+            return parseFloat(resTop) - parseFloat(resBottom);
 
         case '*':
-            return parseInt(resTop) * parseInt(resBottom);
+            return parseFloat(resTop) * parseFloat(resBottom);
 
         case '÷':
+            if (resBottom==0) {
+                return "division por cero";
+            }
             return parseFloat(resTop) / parseFloat(resBottom);
 
     }
