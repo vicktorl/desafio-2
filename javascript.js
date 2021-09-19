@@ -23,32 +23,32 @@ function calculadora(boton) {
             reset();
             break;
         case '=':
-            reset();
-            nodoBottom.nodeValue= resultado(resTop,resBottom);
+            // reset();
+            nodoTop.nodeValue = resultado(resTop, resBottom, sign);
             break;
         case 'x':
             nodoMiddle.nodeValue = "x";
-            sign="x";
+            sign = "x";
             acum++;
             break;
         case '÷':
             nodoMiddle.nodeValue = "÷";
-            sign="÷";
+            sign = "÷";
             acum++;
             break;
         case '+/-':
             nodoMiddle.nodeValue = "+/-";
-            sign="+/-";
+            sign = "+/-";
             acum++;
             break;
         case '+':
             nodoMiddle.nodeValue = "+";
-            sign="+";
+            sign = "+";
             acum++;
             break;
         case '-':
             nodoMiddle.nodeValue = "-";
-            sign="-";
+            sign = "-";
             acum++;
             break;
         default:
@@ -67,14 +67,20 @@ function reset() {
     nodoMiddle.nodeValue = "";
     nodoBottom.nodeValue = "";
 }
-function resultado(resTop,resBottom) {
-    const oper = new operacion(resTop,resBottom);
-    console.log(oper.dividir);
-    oper.dividir;
+function resultado(resTop, resBottom, sign) {
 
-    
-console.log(resTop+resBottom);
-}
-function bottom(res) {
-    console.log("is hjerree" + res);
+    switch (sign) {
+        case '+':
+            return parseInt(resTop) + parseInt(resBottom);
+
+        case '-':
+            return parseInt(resTop) - parseInt(resBottom);
+
+        case '*':
+            return parseInt(resTop) * parseInt(resBottom);
+
+        case '+':
+            return parseInt(resTop) / parseInt(resBottom);
+
+    }
 }
