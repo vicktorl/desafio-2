@@ -21,10 +21,12 @@ function calculadora(boton) {
     switch (boton) {
         case 'C':
             reset();
+            acum = 0;
             break;
         case '=':
-            // reset();
             nodoTop.nodeValue = resultado(resTop, resBottom, sign);
+            nodoMiddle.nodeValue = "";
+            nodoBottom.nodeValue = "";
             break;
         case 'x':
             nodoMiddle.nodeValue = "x";
@@ -71,7 +73,7 @@ function resultado(resTop, resBottom, sign) {
 
     switch (sign) {
         case '+':
-            return parseInt(resTop) + parseInt(resBottom);
+            return parseFloat(resTop) + parseFloat(resBottom);
 
         case '-':
             return parseInt(resTop) - parseInt(resBottom);
@@ -79,8 +81,8 @@ function resultado(resTop, resBottom, sign) {
         case '*':
             return parseInt(resTop) * parseInt(resBottom);
 
-        case '+':
-            return parseInt(resTop) / parseInt(resBottom);
+        case '÷':
+            return parseFloat(resTop) / parseFloat(resBottom);
 
     }
 }
